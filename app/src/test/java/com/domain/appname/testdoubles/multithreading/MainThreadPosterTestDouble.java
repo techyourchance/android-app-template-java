@@ -15,7 +15,7 @@ import java.util.concurrent.LinkedBlockingQueue;
  * of {@link Runnable}s.
  */
 
-/* package */ class MainThreadPosterTestDouble extends MainThreadPoster {
+/* pp */ class MainThreadPosterTestDouble extends MainThreadPoster {
 
     private final Object MONITOR = new Object();
 
@@ -52,7 +52,7 @@ import java.util.concurrent.LinkedBlockingQueue;
      * Call to this method allows to establish a happens-before relationship between the previously
      * posted {@link Runnable}s and subsequent code.
      */
-    /* package */ void join() {
+    /* pp */ void join() {
         Queue<Thread> threadsCopy;
         synchronized (MONITOR) {
             threadsCopy = new LinkedBlockingQueue<>(mThreads);

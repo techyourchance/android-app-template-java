@@ -1,10 +1,10 @@
 package com.domain.appname.screens.example.activities;
 
-import AppCompatActivity;
+import android.support.v7.app.AppCompatActivity;
 
 /**
- * Created by Vasiliy on 5/15/2017.
+ * Example application Activity
  */
-
 public class ExampleActivity extends AppCompatActivity {
+
 }

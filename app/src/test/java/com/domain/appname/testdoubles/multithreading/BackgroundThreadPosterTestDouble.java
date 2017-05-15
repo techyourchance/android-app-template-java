@@ -13,7 +13,7 @@ import java.util.concurrent.LinkedBlockingQueue;
  * are finished.
  */
 
-/* package */ class BackgroundThreadPosterTestDouble extends BackgroundThreadPoster {
+/* pp */ class BackgroundThreadPosterTestDouble extends BackgroundThreadPoster {
 
     private final Object MONITOR = new Object();
 

@@ -1,4 +1,4 @@
-package com.domain.appname.common;
+package com.domain.appname.common.managers;
 
 import java.util.Collections;
 import java.util.Set;
