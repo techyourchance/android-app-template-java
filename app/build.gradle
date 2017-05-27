@@ -29,4 +29,7 @@ dependencies {
 
     compile "com.android.support:support-annotations:${supportLibVersion}"
     compile "com.android.support:appcompat-v7:${supportLibVersion}"
+
+    compile 'org.greenrobot:eventbus:3.0.0'
+
 }

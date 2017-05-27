@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">Application Name</string>
+
     <string name="show_dialog_button_caption">Show Dialog</string>
+
+    <string name="dialog_title">Dialog Title</string>
+    <string name="dialog_message">Dialog message</string>
+    <string name="dialog_button_caption">OK</string>
 </resources>
