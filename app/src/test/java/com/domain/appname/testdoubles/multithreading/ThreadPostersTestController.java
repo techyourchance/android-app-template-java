@@ -1,7 +1,8 @@
 package com.domain.appname.testdoubles.multithreading;
 
-import il.co.idocare.utils.multithreading.BackgroundThreadPoster;
-import il.co.idocare.utils.multithreading.MainThreadPoster;
+
+import com.domain.appname.common.multithreading.BackgroundThreadPoster;
+import com.domain.appname.common.multithreading.MainThreadPoster;
 
 /**
  * Objects of this class can be used in order to test components that depend on

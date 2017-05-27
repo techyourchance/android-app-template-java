@@ -1,6 +1,7 @@
 package com.domain.appname.screens.common.mvcviews;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.annotation.StringRes;
 import android.view.View;
@@ -59,6 +60,23 @@ public abstract class BaseViewMvc<ListenerType> implements ObservableViewMvc<Lis
     // endregion root View
     // ---------------------------------------------------------------------------------------------
 
+    // ---------------------------------------------------------------------------------------------
+    // region view state - provide default implementations for getViewState methods
+
+    @Override
+    public final Bundle getViewState() {
+        Bundle viewState = new Bundle();
+        getViewState(viewState);
+        return viewState;
+    }
+
+    @Override
+    public void getViewState(Bundle bundle) {
+        // no op
+    }
+
+    // endregion view state
+    // ---------------------------------------------------------------------------------------------
 
     /**
      * Convenience method for obtaining references to {@link View}s contained in the hierarchy of
