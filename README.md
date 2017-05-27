@@ -1,6 +1,6 @@
 # Android application template
 
-I noticed that all my application have much in common. In order to reduce a time it takes me to bootstrap a new Android applicaiton, and in order to be able to update all applications at once, I created this template.
+I noticed that all my application have much in common. In order to reduce a time it takes me to bootstrap a new Android applicaiton I created this template.
 
 You're invited to clone/fork this repository and use it as a template for your own great apps!
 
