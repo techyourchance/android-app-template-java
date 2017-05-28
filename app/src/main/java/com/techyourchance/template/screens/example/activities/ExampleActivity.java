@@ -12,19 +12,20 @@ import com.techyourchance.template.screens.common.activities.BaseActivity;
 import com.techyourchance.template.screens.example.mvcviews.ExampleViewMvc;
 import com.techyourchance.template.screens.example.mvcviews.ExampleViewMvcImpl;
 
+import javax.inject.Inject;
+
 public class ExampleActivity extends BaseActivity implements ExampleViewMvc.ExampleViewMvcListener {
 
-    private DialogsManager mDialogsManager;
-    private DialogsFactory mDialogsFactory;
+    @Inject DialogsManager mDialogsManager;
+    @Inject DialogsFactory mDialogsFactory;
 
     private ExampleViewMvc mViewMvc;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+        getControllerComponent().inject(this);
 
-        mDialogsFactory = new DialogsFactory();
-        mDialogsManager = new DialogsManager(getSupportFragmentManager());
+        super.onCreate(savedInstanceState);
 
         mViewMvc = new ExampleViewMvcImpl(LayoutInflater.from(this), null);
         mViewMvc.registerListener(this);
