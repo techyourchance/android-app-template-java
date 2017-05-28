@@ -4,7 +4,7 @@ import com.techyourchance.template.screens.example.activities.ExampleActivity;
 
 import dagger.Subcomponent;
 
-@Subcomponent(modules = {ControllerModule.class})
+@Subcomponent(modules = {ControllerModule.class, ViewMvcModule.class})
 public interface ControllerComponent {
 
     void inject(ExampleActivity exampleActivity);

@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import com.techyourchance.template.MyApplication;
 import com.techyourchance.template.common.dependencyinjection.controller.ControllerComponent;
 import com.techyourchance.template.common.dependencyinjection.controller.ControllerModule;
+import com.techyourchance.template.common.dependencyinjection.controller.ViewMvcModule;
 
 public abstract class BaseActivity extends AppCompatActivity {
 
@@ -19,7 +20,9 @@ public abstract class BaseActivity extends AppCompatActivity {
         if (mControllerComponent == null) {
             mControllerComponent =
                     ((MyApplication)getApplication()).getApplicationComponent()
-                    .newControllerComponent(new ControllerModule(this, getSupportFragmentManager()));
+                    .newControllerComponent(
+                            new ControllerModule(this, getSupportFragmentManager()),
+                            new ViewMvcModule());
         }
         return mControllerComponent;
     }

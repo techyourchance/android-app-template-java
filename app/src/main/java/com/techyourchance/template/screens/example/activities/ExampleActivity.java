@@ -9,6 +9,7 @@ import com.techyourchance.template.R;
 import com.techyourchance.template.dialogs.DialogsFactory;
 import com.techyourchance.template.dialogs.DialogsManager;
 import com.techyourchance.template.screens.common.activities.BaseActivity;
+import com.techyourchance.template.screens.common.mvcviews.ViewMvcFactory;
 import com.techyourchance.template.screens.example.mvcviews.ExampleViewMvc;
 import com.techyourchance.template.screens.example.mvcviews.ExampleViewMvcImpl;
 
@@ -18,6 +19,7 @@ public class ExampleActivity extends BaseActivity implements ExampleViewMvc.Exam
 
     @Inject DialogsManager mDialogsManager;
     @Inject DialogsFactory mDialogsFactory;
+    @Inject ViewMvcFactory mViewMvcFactory;
 
     private ExampleViewMvc mViewMvc;
 
@@ -27,7 +29,7 @@ public class ExampleActivity extends BaseActivity implements ExampleViewMvc.Exam
 
         super.onCreate(savedInstanceState);
 
-        mViewMvc = new ExampleViewMvcImpl(LayoutInflater.from(this), null);
+        mViewMvc = mViewMvcFactory.newMvcView(ExampleViewMvc.class, null);
         mViewMvc.registerListener(this);
 
         setContentView(mViewMvc.getRootView());
