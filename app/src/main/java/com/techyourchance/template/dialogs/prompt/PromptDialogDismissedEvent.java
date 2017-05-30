@@ -1,4 +1,6 @@
-package com.techyourchance.template.dialogs.events;
+package com.techyourchance.template.dialogs.prompt;
+
+import com.techyourchance.template.dialogs.common.BaseDialogEvent;
 
 /**
  * This event will be posted to EventBus when user clicks one of the buttons in PromptDialog

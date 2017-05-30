@@ -3,8 +3,8 @@ package com.techyourchance.template.dialogs;
 
 import android.os.Bundle;
 
-import com.techyourchance.template.dialogs.dialogs.InfoDialog;
-import com.techyourchance.template.dialogs.dialogs.PromptDialog;
+import com.techyourchance.template.dialogs.info.InfoDialog;
+import com.techyourchance.template.dialogs.prompt.PromptDialog;
 
 public class DialogsFactory {
 

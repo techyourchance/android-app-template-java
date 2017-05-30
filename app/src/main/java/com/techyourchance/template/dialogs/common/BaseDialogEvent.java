@@ -1,9 +1,9 @@
-package com.techyourchance.template.dialogs.events;
+package com.techyourchance.template.dialogs.common;
 
 /**
  * Base class for all dialogs related events
  */
-/* package */ abstract class BaseDialogEvent {
+public abstract class BaseDialogEvent {
     private String mId;
 
     public BaseDialogEvent(String id) {

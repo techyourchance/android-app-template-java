@@ -34,10 +34,12 @@ public class ViewMvcFactory {
      */
     @SuppressWarnings("unchecked")
     public <T extends ViewMvc> T newMvcView(Class<T> mvcViewClass, @Nullable ViewGroup container) {
+        ViewMvc viewMvc;
         if (mvcViewClass == ExampleViewMvc.class) {
-            return (T) new ExampleViewMvcImpl(mLayoutInflater, container);
+            viewMvc = new ExampleViewMvcImpl(mLayoutInflater, container);
         } else {
             throw new IllegalArgumentException("MVC view class " + mvcViewClass + " not supported");
         }
+        return (T) viewMvc;
     }
 }
