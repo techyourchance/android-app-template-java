@@ -1,7 +1,7 @@
 package com.techyourchance.template.common.dependencyinjection.controller;
 
-import com.techyourchance.template.dialogs.info.InfoDialog;
-import com.techyourchance.template.dialogs.prompt.PromptDialog;
+import com.techyourchance.template.common.dialogs.info.InfoDialog;
+import com.techyourchance.template.common.dialogs.prompt.PromptDialog;
 import com.techyourchance.template.screens.example.activities.ExampleActivity;
 
 import dagger.Subcomponent;

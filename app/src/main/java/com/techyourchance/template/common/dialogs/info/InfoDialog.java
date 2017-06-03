@@ -1,4 +1,4 @@
-package com.techyourchance.template.dialogs.info;
+package com.techyourchance.template.common.dialogs.info;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 
-import com.techyourchance.template.dialogs.common.BaseDialog;
+import com.techyourchance.template.common.dialogs.common.BaseDialog;
 
 import org.greenrobot.eventbus.EventBus;
 

@@ -1,4 +1,4 @@
-package com.techyourchance.template.dialogs;
+package com.techyourchance.template.common.dialogs;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

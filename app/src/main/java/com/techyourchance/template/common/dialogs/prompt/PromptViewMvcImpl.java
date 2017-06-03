@@ -1,4 +1,4 @@
-package com.techyourchance.template.dialogs.prompt;
+package com.techyourchance.template.common.dialogs.prompt;
 
 import android.view.LayoutInflater;
 import android.view.View;

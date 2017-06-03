@@ -1,14 +1,13 @@
-package com.techyourchance.template.dialogs.common;
+package com.techyourchance.template.common.dialogs.common;
 
 import android.support.annotation.UiThread;
 import android.support.v4.app.DialogFragment;
-import android.support.v4.app.Fragment;
 
 import com.techyourchance.template.MyApplication;
 import com.techyourchance.template.common.dependencyinjection.controller.ControllerComponent;
 import com.techyourchance.template.common.dependencyinjection.controller.ControllerModule;
 import com.techyourchance.template.common.dependencyinjection.controller.ViewMvcModule;
-import com.techyourchance.template.dialogs.DialogsManager;
+import com.techyourchance.template.common.dialogs.DialogsManager;
 
 /**
  * Base class for all dialogs
