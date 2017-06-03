@@ -1,6 +1,7 @@
-package com.techyourchance.template.common.dialogs.info;
+package com.techyourchance.template.screens.common.dialogs.info;
 
-import com.techyourchance.template.common.dialogs.common.BaseDialogEvent;
+
+import com.techyourchance.template.screens.common.dialogs.BaseDialogEvent;
 
 /**
  * This event will be posted to EventBus when InfoDialog is dismissed

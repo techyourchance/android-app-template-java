@@ -1,4 +1,4 @@
-package com.techyourchance.template.common.dialogs.common;
+package com.techyourchance.template.screens.common.dialogs;
 
 /**
  * Base class for all dialogs related events

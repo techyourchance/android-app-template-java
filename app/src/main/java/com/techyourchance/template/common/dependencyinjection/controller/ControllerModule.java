@@ -4,8 +4,8 @@ import android.app.Activity;
 import android.content.Context;
 import android.support.v4.app.FragmentManager;
 
-import com.techyourchance.template.common.dialogs.DialogsFactory;
-import com.techyourchance.template.common.dialogs.DialogsManager;
+import com.techyourchance.template.screens.common.dialogs.DialogsFactory;
+import com.techyourchance.template.screens.common.dialogs.DialogsManager;
 
 import dagger.Module;
 import dagger.Provides;

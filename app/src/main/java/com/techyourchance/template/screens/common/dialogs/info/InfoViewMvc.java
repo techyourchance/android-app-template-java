@@ -1,4 +1,4 @@
-package com.techyourchance.template.common.dialogs.info;
+package com.techyourchance.template.screens.common.dialogs.info;
 
 import com.techyourchance.template.screens.common.mvcviews.ObservableViewMvc;
 

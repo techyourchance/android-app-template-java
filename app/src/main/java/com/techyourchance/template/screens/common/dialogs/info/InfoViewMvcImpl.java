@@ -1,4 +1,4 @@
-package com.techyourchance.template.common.dialogs.info;
+package com.techyourchance.template.screens.common.dialogs.info;
 
 import android.view.LayoutInflater;
 import android.view.View;

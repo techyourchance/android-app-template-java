@@ -1,10 +1,10 @@
-package com.techyourchance.template.common.dialogs;
+package com.techyourchance.template.screens.common.dialogs;
 
 
 import android.os.Bundle;
 
-import com.techyourchance.template.common.dialogs.info.InfoDialog;
-import com.techyourchance.template.common.dialogs.prompt.PromptDialog;
+import com.techyourchance.template.screens.common.dialogs.info.InfoDialog;
+import com.techyourchance.template.screens.common.dialogs.prompt.PromptDialog;
 
 public class DialogsFactory {
 

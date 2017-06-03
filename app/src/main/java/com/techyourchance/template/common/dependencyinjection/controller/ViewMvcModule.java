@@ -3,8 +3,6 @@ package com.techyourchance.template.common.dependencyinjection.controller;
 import android.content.Context;
 import android.view.LayoutInflater;
 
-import com.techyourchance.template.common.dialogs.DialogsFactory;
-import com.techyourchance.template.common.dialogs.DialogsManager;
 import com.techyourchance.template.screens.common.mvcviews.ViewMvcFactory;
 
 import dagger.Module;
