@@ -33,18 +33,6 @@ public class ApplicationModule {
 
     @Provides
     @ApplicationScope
-    SharedPreferences provideSharedPreferences() {
-        return mApplication.getSharedPreferences(Constants.SHARED_PREFS_FILE, Context.MODE_PRIVATE);
-    }
-
-    @Provides
-    @ApplicationScope
-    SettingsManager settingsManager(SharedPreferences sharedPreferences) {
-        return new SettingsManager(new SharedPrefsSettingsEntryFactory(sharedPreferences));
-    }
-
-    @Provides
-    @ApplicationScope
     MyLogger logger() {
         return new MyLogger();
     }
