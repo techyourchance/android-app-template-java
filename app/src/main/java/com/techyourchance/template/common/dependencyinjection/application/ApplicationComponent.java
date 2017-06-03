@@ -11,7 +11,8 @@ import dagger.Component;
 @ApplicationScope
 @Component(
         modules = {
-                ApplicationModule.class
+                ApplicationModule.class,
+                SettingsModule.class
         }
 )
 public interface ApplicationComponent {
