@@ -4,9 +4,9 @@ import android.support.annotation.UiThread;
 import android.support.v7.app.AppCompatActivity;
 
 import com.techyourchance.template.MyApplication;
-import com.techyourchance.template.common.dependencyinjection.controller.ControllerComponent;
-import com.techyourchance.template.common.dependencyinjection.controller.ControllerModule;
-import com.techyourchance.template.common.dependencyinjection.controller.ViewMvcModule;
+import com.techyourchance.template.dependencyinjection.controller.ControllerComponent;
+import com.techyourchance.template.dependencyinjection.controller.ControllerModule;
+import com.techyourchance.template.dependencyinjection.controller.ViewMvcModule;
 
 public abstract class BaseActivity extends AppCompatActivity {
 

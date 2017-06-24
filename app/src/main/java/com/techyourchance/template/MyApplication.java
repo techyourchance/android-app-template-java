@@ -3,10 +3,10 @@ package com.techyourchance.template;
 import android.app.Application;
 import android.support.annotation.UiThread;
 
-import com.techyourchance.template.common.dependencyinjection.application.ApplicationComponent;
-import com.techyourchance.template.common.dependencyinjection.application.ApplicationModule;
-import com.techyourchance.template.common.dependencyinjection.application.DaggerApplicationComponent;
-import com.techyourchance.template.common.dependencyinjection.application.SettingsModule;
+import com.techyourchance.template.dependencyinjection.application.ApplicationComponent;
+import com.techyourchance.template.dependencyinjection.application.ApplicationModule;
+import com.techyourchance.template.dependencyinjection.application.DaggerApplicationComponent;
+import com.techyourchance.template.dependencyinjection.application.SettingsModule;
 
 public class MyApplication extends Application {
 

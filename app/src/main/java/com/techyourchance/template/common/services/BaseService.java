@@ -7,8 +7,8 @@ import android.support.annotation.Nullable;
 import android.support.annotation.UiThread;
 
 import com.techyourchance.template.MyApplication;
-import com.techyourchance.template.common.dependencyinjection.service.ServiceComponent;
-import com.techyourchance.template.common.dependencyinjection.service.ServiceModule;
+import com.techyourchance.template.dependencyinjection.service.ServiceComponent;
+import com.techyourchance.template.dependencyinjection.service.ServiceModule;
 
 public class BaseService extends Service {
 

@@ -1,4 +1,4 @@
-package com.techyourchance.template.common.dependencyinjection.application;
+package com.techyourchance.template.dependencyinjection.application;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

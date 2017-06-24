@@ -1,4 +1,4 @@
-package com.techyourchance.template.common.dependencyinjection.controller;
+package com.techyourchance.template.dependencyinjection.controller;
 
 import android.content.Context;
 import android.view.LayoutInflater;
