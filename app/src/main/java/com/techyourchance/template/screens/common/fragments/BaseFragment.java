@@ -21,7 +21,7 @@ public abstract class BaseFragment extends Fragment {
             mControllerComponent =
                     ((MyApplication)getActivity().getApplication()).getApplicationComponent()
                             .newControllerComponent(
-                                    new ControllerModule(getActivity(), getActivity().getSupportFragmentManager()),
+                                    new ControllerModule(getActivity()),
                                     new ViewMvcModule());
         }
         return mControllerComponent;

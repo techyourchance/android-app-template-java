@@ -20,7 +20,7 @@ public abstract class BaseDialog extends DialogFragment {
         if (mControllerComponent == null) {
             mControllerComponent = ((MyApplication)getActivity().getApplication())
                     .getApplicationComponent().newControllerComponent(
-                            new ControllerModule(getActivity(), getFragmentManager()),
+                            new ControllerModule(getActivity()),
                             new ViewMvcModule()
                     );
         }

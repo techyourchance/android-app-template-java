@@ -1,6 +1,7 @@
 package com.techyourchance.template.screens.common.activities;
 
 import android.support.annotation.UiThread;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
 
 import com.techyourchance.template.MyApplication;
@@ -8,7 +9,7 @@ import com.techyourchance.template.dependencyinjection.controller.ControllerComp
 import com.techyourchance.template.dependencyinjection.controller.ControllerModule;
 import com.techyourchance.template.dependencyinjection.controller.ViewMvcModule;
 
-public abstract class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity extends FragmentActivity {
 
     private ControllerComponent mControllerComponent;
 
@@ -21,7 +22,7 @@ public abstract class BaseActivity extends AppCompatActivity {
             mControllerComponent =
                     ((MyApplication)getApplication()).getApplicationComponent()
                     .newControllerComponent(
-                            new ControllerModule(this, getSupportFragmentManager()),
+                            new ControllerModule(this),
                             new ViewMvcModule());
         }
         return mControllerComponent;

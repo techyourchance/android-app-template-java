@@ -2,6 +2,7 @@ package com.techyourchance.template.dependencyinjection.controller;
 
 import android.app.Activity;
 import android.content.Context;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 
 import com.techyourchance.template.screens.common.dialogs.DialogsFactory;
@@ -13,12 +14,10 @@ import dagger.Provides;
 @Module
 public class ControllerModule {
 
-    private final Activity mActivity;
-    private final FragmentManager mFragmentManager;
+    private final FragmentActivity mActivity;
 
-    public ControllerModule(Activity activity, FragmentManager fragmentManager) {
+    public ControllerModule(FragmentActivity activity) {
         mActivity = activity;
-        mFragmentManager = fragmentManager;
     }
 
     @Provides
@@ -33,9 +32,8 @@ public class ControllerModule {
 
     @Provides
     FragmentManager fragmentManager() {
-        return mFragmentManager;
+        return mActivity.getSupportFragmentManager();
     }
-
 
     @Provides
     DialogsManager dialogsManager(FragmentManager fragmentManager) {
