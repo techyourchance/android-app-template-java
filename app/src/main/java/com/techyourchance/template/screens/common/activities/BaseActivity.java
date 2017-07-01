@@ -11,20 +11,19 @@ import com.techyourchance.template.dependencyinjection.controller.ViewMvcModule;
 
 public abstract class BaseActivity extends FragmentActivity {
 
-    private ControllerComponent mControllerComponent;
+    private boolean mIsControllerComponentUsed = false;
 
     /**
      * @return controller injector of type {@link ControllerComponent}
      */
     @UiThread
     protected ControllerComponent getControllerComponent() {
-        if (mControllerComponent == null) {
-            mControllerComponent =
-                    ((MyApplication)getApplication()).getApplicationComponent()
-                    .newControllerComponent(
-                            new ControllerModule(this),
-                            new ViewMvcModule());
+        if (mIsControllerComponentUsed) {
+            throw new IllegalStateException("must not use ControllerComponent more than once");
         }
-        return mControllerComponent;
+        mIsControllerComponentUsed = true;
+        return ((MyApplication)getApplication())
+                .getApplicationComponent()
+                .newControllerComponent(new ControllerModule(this), new ViewMvcModule());
     }
 }

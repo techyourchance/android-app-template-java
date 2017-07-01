@@ -13,18 +13,17 @@ import com.techyourchance.template.dependencyinjection.controller.ViewMvcModule;
  */
 public abstract class BaseDialog extends DialogFragment {
 
-    private ControllerComponent mControllerComponent;
+    private boolean mIsControllerComponentUsed = false;
 
     @UiThread
     protected ControllerComponent getControllerComponent() {
-        if (mControllerComponent == null) {
-            mControllerComponent = ((MyApplication)getActivity().getApplication())
-                    .getApplicationComponent().newControllerComponent(
-                            new ControllerModule(getActivity()),
-                            new ViewMvcModule()
-                    );
+        if (mIsControllerComponentUsed) {
+            throw new IllegalStateException("must not use ControllerComponent more than once");
         }
-        return mControllerComponent;
+        mIsControllerComponentUsed = true;
+        return ((MyApplication)getActivity().getApplication())
+                .getApplicationComponent()
+                .newControllerComponent(new ControllerModule(getActivity()), new ViewMvcModule());
     }
 
     /**
