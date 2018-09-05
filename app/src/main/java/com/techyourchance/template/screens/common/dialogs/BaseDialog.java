@@ -28,7 +28,7 @@ public abstract class BaseDialog extends DialogFragment {
 
     /**
      * Get this dialog's ID that was supplied with a call to
-     * {@link DialogsManager#showRetainedDialogWithId(DialogFragment, String)}
+     * {@link DialogsManager#showDialogWithId(DialogFragment, String)}
      * @return dialog's ID, or null if none was set
      */
     protected String getDialogId() {

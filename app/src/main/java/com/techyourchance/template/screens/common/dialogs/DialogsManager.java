@@ -9,7 +9,7 @@ import android.support.v4.app.FragmentManager;
 import android.text.TextUtils;
 
 /**
- * This object should be used in activities and fragments in order to manage dialogs.
+ * This class should be used in activities and fragments in order to manage dialogs.
  */
 @UiThread
 public class DialogsManager {
@@ -29,8 +29,7 @@ public class DialogsManager {
      */
     private static final String DIALOG_FRAGMENT_TAG = "DIALOG_FRAGMENT_TAG";
 
-
-    private FragmentManager mFragmentManager;
+    private final FragmentManager mFragmentManager;
     private DialogFragment mCurrentlyShownDialog;
 
     public DialogsManager(FragmentManager fragmentManager) {
@@ -47,8 +46,7 @@ public class DialogsManager {
     /**
      * @return a reference to currently shown dialog, or null if no dialog is shown.
      */
-    public @Nullable
-    DialogFragment getCurrentlyShownDialog() {
+    public @Nullable DialogFragment getCurrentlyShownDialog() {
         return mCurrentlyShownDialog;
     }
 
@@ -57,8 +55,7 @@ public class DialogsManager {
      * @return the id of the currently shown dialog; null if no dialog is shown, or the currently
      *         shown dialog has no id
      */
-    public @Nullable
-    String getCurrentlyShownDialogId() {
+    public @Nullable String getCurrentlyShownDialogId() {
         if (mCurrentlyShownDialog == null || mCurrentlyShownDialog.getArguments() == null ||
                 !mCurrentlyShownDialog.getArguments().containsKey(ARGUMENT_DIALOG_ID)) {
             return null;
@@ -90,13 +87,13 @@ public class DialogsManager {
 
     /**
      * Show dialog and assign it a given "id". Replaces any other currently shown dialog.<br>
-     * The shown dialog will be retained across parent activity re-creation.
+     * Note that all dialogs implemented with DialogFragment and they will be committed allowing
+     * state loss to prevent IllegalStateException.
      * @param dialog dialog to show
      * @param id string that uniquely identifies the dialog; can be null
      */
-    public void showRetainedDialogWithId(DialogFragment dialog, @Nullable String id) {
+    public void showDialog(DialogFragment dialog, @Nullable String id) {
         dismissCurrentlyShownDialog();
-        dialog.setRetainInstance(true);
         setId(dialog, id);
         showDialog(dialog);
     }
@@ -108,7 +105,9 @@ public class DialogsManager {
     }
 
     private void showDialog(DialogFragment dialog) {
-        dialog.show(mFragmentManager, DIALOG_FRAGMENT_TAG);
+        mFragmentManager.beginTransaction()
+            .add(dialog, DIALOG_FRAGMENT_TAG)
+            .commitAllowingStateLoss();
         mCurrentlyShownDialog = dialog;
     }
 

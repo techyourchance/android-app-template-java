@@ -5,10 +5,10 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
 
 import com.techyourchance.template.R;
+import com.techyourchance.template.screens.common.ViewMvcFactory;
+import com.techyourchance.template.screens.common.controllers.BaseActivity;
 import com.techyourchance.template.screens.common.dialogs.DialogsFactory;
 import com.techyourchance.template.screens.common.dialogs.DialogsManager;
-import com.techyourchance.template.screens.common.controllers.BaseActivity;
-import com.techyourchance.template.screens.common.ViewMvcFactory;
 import com.techyourchance.template.screens.example.mvcviews.ExampleViewMvc;
 
 import javax.inject.Inject;
@@ -39,6 +39,6 @@ public class ExampleActivity extends BaseActivity implements ExampleViewMvc.List
                 getString(R.string.dialog_title),
                 getString(R.string.dialog_message),
                 getString(R.string.dialog_button_caption));
-        mDialogsManager.showRetainedDialogWithId(dialog, null);
+        mDialogsManager.showDialog(dialog, null);
     }
 }

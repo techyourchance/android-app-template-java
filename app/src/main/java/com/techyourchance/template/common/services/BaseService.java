@@ -10,7 +10,7 @@ import com.techyourchance.template.MyApplication;
 import com.techyourchance.template.common.dependencyinjection.service.ServiceComponent;
 import com.techyourchance.template.common.dependencyinjection.service.ServiceModule;
 
-public class BaseService extends Service {
+public abstract class BaseService extends Service {
 
     private ServiceComponent mServiceComponent;
     

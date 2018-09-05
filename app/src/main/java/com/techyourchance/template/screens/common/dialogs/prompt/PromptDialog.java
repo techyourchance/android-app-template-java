@@ -7,16 +7,15 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 
+import com.techyourchance.template.common.eventbus.EventBusPoster;
 import com.techyourchance.template.screens.common.dialogs.BaseDialog;
-
-import org.greenrobot.eventbus.EventBus;
 
 import javax.inject.Inject;
 
 
 /**
  * A dialog that can show title and message and has two buttons. User's actions performed
- * in this dialog will be posted to {@link EventBus} as {@link PromptDialogDismissedEvent}.
+ * in this dialog will be posted to event bus as {@link PromptDialogDismissedEvent}.
  */
 public class PromptDialog extends BaseDialog implements PromptViewMvc.PromptViewMvcListener {
 
@@ -26,7 +25,7 @@ public class PromptDialog extends BaseDialog implements PromptViewMvc.PromptView
     public static final String ARG_POSITIVE_BUTTON_CAPTION = "ARG_POSITIVE_BUTTON_CAPTION";
     public static final String ARG_NEGATIVE_BUTTON_CAPTION = "ARG_NEGATIVE_BUTTON_CAPTION";
 
-    @Inject EventBus mEventBus;
+    @Inject EventBusPoster mEventBusPoster;
 
     private PromptViewMvc mPromptViewMvc;
 
@@ -56,21 +55,21 @@ public class PromptDialog extends BaseDialog implements PromptViewMvc.PromptView
     @Override
     public void onPositiveButtonClicked() {
         dismiss();
-        mEventBus.post(new PromptDialogDismissedEvent(
+        mEventBusPoster.post(new PromptDialogDismissedEvent(
                 getDialogId(), PromptDialogDismissedEvent.BUTTON_POSITIVE));
     }
 
     @Override
     public void onNegativeButtonClicked() {
         dismiss();
-        mEventBus.post(new PromptDialogDismissedEvent(
+        mEventBusPoster.post(new PromptDialogDismissedEvent(
                 getDialogId(), PromptDialogDismissedEvent.BUTTON_NEGATIVE));
     }
 
     @Override
     public void onCancel(DialogInterface dialog) {
         dismiss();
-        mEventBus.post(new PromptDialogDismissedEvent(
+        mEventBusPoster.post(new PromptDialogDismissedEvent(
                 getDialogId(), PromptDialogDismissedEvent.BUTTON_NONE));
     }
 

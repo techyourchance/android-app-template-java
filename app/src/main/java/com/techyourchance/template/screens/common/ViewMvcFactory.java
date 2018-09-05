@@ -4,7 +4,6 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
-import com.techyourchance.template.screens.common.mvcviews.ViewMvc;
 import com.techyourchance.template.screens.example.mvcviews.ExampleViewMvc;
 import com.techyourchance.template.screens.example.mvcviews.ExampleViewMvcImpl;
 
