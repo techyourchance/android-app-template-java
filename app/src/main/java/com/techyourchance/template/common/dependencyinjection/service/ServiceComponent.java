@@ -1,4 +1,4 @@
-package com.techyourchance.template.dependencyinjection.service;
+package com.techyourchance.template.common.dependencyinjection.service;
 
 import dagger.Subcomponent;
 

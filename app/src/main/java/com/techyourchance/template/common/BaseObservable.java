@@ -1,14 +1,10 @@
-package com.techyourchance.template.common.managers;
+package com.techyourchance.template.common;
 
 import java.util.Collections;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
-/**
- * Base class for managers in the application
- * @param <LISTENER_CLASS> generics that designates the class of the listeners
- */
-public class BaseObservableManager<LISTENER_CLASS> {
+public class BaseObservable<LISTENER_CLASS> {
 
     // thread-safe set of listeners
     private Set<LISTENER_CLASS> mListeners = Collections.newSetFromMap(

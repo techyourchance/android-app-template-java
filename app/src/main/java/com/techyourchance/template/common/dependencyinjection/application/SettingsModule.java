@@ -1,4 +1,4 @@
-package com.techyourchance.template.dependencyinjection.application;
+package com.techyourchance.template.common.dependencyinjection.application;
 
 import android.app.Application;
 import android.content.Context;

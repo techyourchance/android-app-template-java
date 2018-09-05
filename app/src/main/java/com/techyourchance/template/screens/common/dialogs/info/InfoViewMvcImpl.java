@@ -7,9 +7,9 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.techyourchance.template.R;
-import com.techyourchance.template.screens.common.mvcviews.BaseViewMvc;
+import com.techyourchance.template.screens.common.mvcviews.BaseObservableViewMvc;
 
-public class InfoViewMvcImpl extends BaseViewMvc<InfoViewMvc.InfoViewMvcListener>
+public class InfoViewMvcImpl extends BaseObservableViewMvc<InfoViewMvc.InfoViewMvcListener>
         implements InfoViewMvc {
 
     private final TextView mTxtTitle;

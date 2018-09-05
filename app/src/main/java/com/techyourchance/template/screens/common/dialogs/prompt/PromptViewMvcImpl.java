@@ -7,9 +7,9 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.techyourchance.template.R;
-import com.techyourchance.template.screens.common.mvcviews.BaseViewMvc;
+import com.techyourchance.template.screens.common.mvcviews.BaseObservableViewMvc;
 
-public class PromptViewMvcImpl extends BaseViewMvc<PromptViewMvc.PromptViewMvcListener>
+public class PromptViewMvcImpl extends BaseObservableViewMvc<PromptViewMvc.PromptViewMvcListener>
         implements PromptViewMvc {
 
     private final TextView mTxtTitle;

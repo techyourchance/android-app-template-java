@@ -3,7 +3,7 @@ package com.techyourchance.template.testdoubles.logging;
 import com.techyourchance.template.common.logging.MyLogger;
 
 /**
- * No op logger for testing
+ * No-op logger for testing
  */
 public class NullLogger extends MyLogger {
 

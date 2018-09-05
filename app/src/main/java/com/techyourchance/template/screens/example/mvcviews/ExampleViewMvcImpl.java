@@ -6,9 +6,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.techyourchance.template.R;
-import com.techyourchance.template.screens.common.mvcviews.BaseViewMvc;
+import com.techyourchance.template.screens.common.mvcviews.BaseObservableViewMvc;
 
-public class ExampleViewMvcImpl extends BaseViewMvc<ExampleViewMvc.ExampleViewMvcListener>
+public class ExampleViewMvcImpl extends BaseObservableViewMvc<ExampleViewMvc.Listener>
         implements ExampleViewMvc {
 
     private final Button mBtnShowDialog;
@@ -21,7 +21,7 @@ public class ExampleViewMvcImpl extends BaseViewMvc<ExampleViewMvc.ExampleViewMv
         mBtnShowDialog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                for (ExampleViewMvcListener listener : getListeners()) {
+                for (Listener listener : getListeners()) {
                     listener.onShowDialogClicked();
                 }
             }

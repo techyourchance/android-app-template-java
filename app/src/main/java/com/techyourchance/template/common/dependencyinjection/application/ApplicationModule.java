@@ -1,10 +1,8 @@
-package com.techyourchance.template.dependencyinjection.application;
+package com.techyourchance.template.common.dependencyinjection.application;
 
 import android.app.Application;
 
 import com.techyourchance.template.common.logging.MyLogger;
-import com.techyourchance.template.common.multithreading.BackgroundThreadPoster;
-import com.techyourchance.template.common.multithreading.MainThreadPoster;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -38,15 +36,4 @@ public class ApplicationModule {
         return EventBus.getDefault();
     }
 
-    @Provides
-    @ApplicationScope
-    MainThreadPoster mainThreadPoster() {
-        return new MainThreadPoster();
-    }
-
-    @Provides
-    @ApplicationScope
-    BackgroundThreadPoster backgroundThreadPoster() {
-        return new BackgroundThreadPoster();
-    }
 }
