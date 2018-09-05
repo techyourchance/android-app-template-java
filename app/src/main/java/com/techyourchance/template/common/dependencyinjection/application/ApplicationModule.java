@@ -2,6 +2,8 @@ package com.techyourchance.template.common.dependencyinjection.application;
 
 import android.app.Application;
 
+import com.techyourchance.template.common.eventbus.EventBusPoster;
+import com.techyourchance.template.common.eventbus.EventBusSubscriber;
 import com.techyourchance.template.common.logging.MyLogger;
 
 import org.greenrobot.eventbus.EventBus;
@@ -32,8 +34,13 @@ public class ApplicationModule {
 
     @Provides
     @ApplicationScope
-    EventBus eventBus() {
-        return EventBus.getDefault();
+    EventBusPoster eventBusPoster() {
+        return new EventBusPoster(EventBus.getDefault());
     }
 
+    @Provides
+    @ApplicationScope
+    EventBusSubscriber eventBusSubscriber() {
+        return new EventBusSubscriber(EventBus.getDefault());
+    }
 }
