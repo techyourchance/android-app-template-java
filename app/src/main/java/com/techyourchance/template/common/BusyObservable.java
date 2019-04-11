@@ -2,7 +2,7 @@ package com.techyourchance.template.common;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
-public abstract class BaseAsyncObservable<LISTENER_CLASS> extends BaseObservable<LISTENER_CLASS> {
+public abstract class BusyObservable<LISTENER_CLASS> extends Observable<LISTENER_CLASS> {
 
     private final AtomicBoolean mIsBusy = new AtomicBoolean(false);
 

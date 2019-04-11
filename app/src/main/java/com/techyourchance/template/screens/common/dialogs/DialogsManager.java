@@ -106,8 +106,8 @@ public class DialogsManager {
 
     private void showDialog(DialogFragment dialog) {
         mFragmentManager.beginTransaction()
-            .add(dialog, DIALOG_FRAGMENT_TAG)
-            .commitAllowingStateLoss();
+                .add(dialog, DIALOG_FRAGMENT_TAG)
+                .commitAllowingStateLoss();
         mCurrentlyShownDialog = dialog;
     }
 
