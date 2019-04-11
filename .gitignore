@@ -1,3 +1,6 @@
+# release signing config files
+release.properties
+release.keystore
 
 #built application files
 *.apk
