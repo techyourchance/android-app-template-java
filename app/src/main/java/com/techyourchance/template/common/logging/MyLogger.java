@@ -1,25 +1,25 @@
 package com.techyourchance.template.common.logging;
 
-import android.util.Log;
+import timber.log.Timber;
 
 /**
- * This class is a non-static wrapper around {@link Log} class
+ * This class is a non-static logger wrapper
  */
 public class MyLogger {
 
-    public void e(String tag, String message) {
-        Log.e(tag, message);
+    public void e(String tag, String message, Object... args) {
+        Timber.tag(tag);
+        Timber.e(message, args);
     }
 
-    public void w(String tag, String message) {
-        Log.w(tag, message);
+    public void d(String tag, String message, Object... args) {
+        Timber.tag(tag);
+        Timber.d(message, args);
     }
 
-    public void v(String tag, String message) {
-        Log.v(tag, message);
+    public void v(String tag, String message, Object... args) {
+        Timber.tag(tag);
+        Timber.v(message, args);
     }
 
-    public void d(String tag, String message) {
-        Log.d(tag, message);
-    }
 }

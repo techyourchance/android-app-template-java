@@ -10,12 +10,36 @@ android {
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
+
+        vectorDrawables.useSupportLibrary = true
+    }
+
+    signingConfigs {
+        release {
+            // TODO: CHANGE TO TRUE AFTER PROVIDING ../release.properties FILE FOR RELEASE BUILD
+            if (false) {
+                def projectPropsFile = file('../release.properties')
+
+                if (projectPropsFile.exists()) {
+                    Properties props = new Properties()
+                    props.load(new FileInputStream(projectPropsFile))
+
+                    storeFile file(props['KEYSTORE_FILE'])
+                    storePassword props['STORE_PASSWORD']
+                    keyAlias props['KEY_ALIAS']
+                    keyPassword props['KEY_PASSWORD']
+                } else {
+                    throw new FileNotFoundException("release signing properties file doesn't exist")
+                }
+            }
+        }
     }
 
     buildTypes {
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
     }
 }
@@ -32,8 +56,20 @@ dependencies {
     implementation "androidx.annotation:annotation:${androidxAnnotationVersion}"
     implementation "androidx.appcompat:appcompat:${androidxAppcompatVersion}"
 
+    // multithreading
+    implementation "com.techyourchance.threadposter:threadposter:0.8.2"
+
+    // event bus
     implementation 'org.greenrobot:eventbus:3.1.1'
 
+    // logging
+    implementation 'com.jakewharton.timber:timber:4.7.1'
+
+    // dependency injection
     implementation "com.google.dagger:dagger:${daggerVersion}"
     annotationProcessor "com.google.dagger:dagger-compiler:${daggerVersion}"
+
+    // unit testing
+    testImplementation 'junit:junit:4.12'
+    testImplementation 'org.mockito:mockito-core:2.18.3'
 }
