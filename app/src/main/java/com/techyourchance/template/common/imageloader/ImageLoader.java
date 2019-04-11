@@ -1,6 +1,6 @@
 package com.techyourchance.template.common.imageloader;
 
-import android.support.annotation.DrawableRes;
+import androidx.annotation.DrawableRes;
 import android.widget.ImageView;
 
 /**

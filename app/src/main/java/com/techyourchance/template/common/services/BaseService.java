@@ -3,8 +3,8 @@ package com.techyourchance.template.common.services;
 import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
-import android.support.annotation.Nullable;
-import android.support.annotation.UiThread;
+import androidx.annotation.Nullable;
+import androidx.annotation.UiThread;
 
 import com.techyourchance.template.MyApplication;
 import com.techyourchance.template.common.dependencyinjection.service.ServiceComponent;

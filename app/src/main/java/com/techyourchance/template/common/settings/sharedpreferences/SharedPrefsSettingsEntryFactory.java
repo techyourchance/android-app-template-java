@@ -1,7 +1,7 @@
 package com.techyourchance.template.common.settings.sharedpreferences;
 
 import android.content.SharedPreferences;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import com.techyourchance.template.common.settings.SettingDataEntry;
 import com.techyourchance.template.common.settings.SettingsEntryFactory;

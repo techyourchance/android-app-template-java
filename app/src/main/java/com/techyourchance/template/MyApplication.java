@@ -1,7 +1,7 @@
 package com.techyourchance.template;
 
 import android.app.Application;
-import android.support.annotation.UiThread;
+import androidx.annotation.UiThread;
 
 import com.techyourchance.template.common.dependencyinjection.application.ApplicationComponent;
 import com.techyourchance.template.common.dependencyinjection.application.ApplicationModule;

@@ -1,7 +1,7 @@
 package com.techyourchance.template.screens.common.controllers;
 
-import android.support.annotation.UiThread;
-import android.support.v4.app.FragmentActivity;
+import androidx.annotation.UiThread;
+import androidx.fragment.app.FragmentActivity;
 
 import com.techyourchance.template.MyApplication;
 import com.techyourchance.template.common.dependencyinjection.controller.ControllerComponent;

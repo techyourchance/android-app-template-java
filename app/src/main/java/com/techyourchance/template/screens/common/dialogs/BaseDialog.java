@@ -1,7 +1,7 @@
 package com.techyourchance.template.screens.common.dialogs;
 
-import android.support.annotation.UiThread;
-import android.support.v4.app.DialogFragment;
+import androidx.annotation.UiThread;
+import androidx.fragment.app.DialogFragment;
 
 import com.techyourchance.template.MyApplication;
 import com.techyourchance.template.common.dependencyinjection.controller.ControllerComponent;
