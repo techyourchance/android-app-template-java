@@ -4,13 +4,14 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
 import android.view.LayoutInflater;
 
 import com.techyourchance.template.common.eventbus.EventBusPoster;
 import com.techyourchance.template.screens.common.dialogs.BaseDialog;
 
 import javax.inject.Inject;
+
+import androidx.annotation.NonNull;
 
 
 /**
@@ -19,9 +20,21 @@ import javax.inject.Inject;
  */
 public class InfoDialog extends BaseDialog implements InfoViewMvc.InfoViewMvcListener {
 
-    public static final String ARG_TITLE = "ARG_TITLE";
-    public static final String ARG_MESSAGE = "ARG_MESSAGE";
-    public static final String ARG_BUTTON_CAPTION = "ARG_POSITIVE_BUTTON_CAPTION";
+    private static final String ARG_TITLE = "ARG_TITLE";
+    private static final String ARG_MESSAGE = "ARG_MESSAGE";
+    private static final String ARG_BUTTON_CAPTION = "ARG_POSITIVE_BUTTON_CAPTION";
+
+    public static InfoDialog newInstance(String title, String message, String buttonCaption) {
+        Bundle args = new Bundle(3);
+        args.putString(InfoDialog.ARG_TITLE, title);
+        args.putString(InfoDialog.ARG_MESSAGE, message);
+        args.putString(InfoDialog.ARG_BUTTON_CAPTION, buttonCaption);
+
+        InfoDialog infoDialog = new InfoDialog();
+        infoDialog.setArguments(args);
+
+        return infoDialog;
+    }
 
     @Inject EventBusPoster mEventBusPoster;
 

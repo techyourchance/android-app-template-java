@@ -4,13 +4,14 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
 import android.view.LayoutInflater;
 
 import com.techyourchance.template.common.eventbus.EventBusPoster;
 import com.techyourchance.template.screens.common.dialogs.BaseDialog;
 
 import javax.inject.Inject;
+
+import androidx.annotation.NonNull;
 
 
 /**
@@ -19,12 +20,27 @@ import javax.inject.Inject;
  */
 public class PromptDialog extends BaseDialog implements PromptViewMvc.PromptViewMvcListener {
 
+    private static final String ARG_TITLE = "ARG_TITLE";
+    private static final String ARG_MESSAGE = "ARG_MESSAGE";
+    private static final String ARG_POSITIVE_BUTTON_CAPTION = "ARG_POSITIVE_BUTTON_CAPTION";
+    private static final String ARG_NEGATIVE_BUTTON_CAPTION = "ARG_NEGATIVE_BUTTON_CAPTION";
 
-    public static final String ARG_TITLE = "ARG_TITLE";
-    public static final String ARG_MESSAGE = "ARG_MESSAGE";
-    public static final String ARG_POSITIVE_BUTTON_CAPTION = "ARG_POSITIVE_BUTTON_CAPTION";
-    public static final String ARG_NEGATIVE_BUTTON_CAPTION = "ARG_NEGATIVE_BUTTON_CAPTION";
+    public static PromptDialog newInstance(String title,
+                                           String message,
+                                           String positiveButtonCaption,
+                                           String negativeButtonCaption) {
+        Bundle args = new Bundle(4);
+        args.putString(PromptDialog.ARG_TITLE, title);
+        args.putString(PromptDialog.ARG_MESSAGE, message);
+        args.putString(PromptDialog.ARG_POSITIVE_BUTTON_CAPTION, positiveButtonCaption);
+        args.putString(PromptDialog.ARG_NEGATIVE_BUTTON_CAPTION, negativeButtonCaption);
 
+        PromptDialog promptDialog = new PromptDialog();
+        promptDialog.setArguments(args);
+
+        return promptDialog;
+    }
+    
     @Inject EventBusPoster mEventBusPoster;
 
     private PromptViewMvc mPromptViewMvc;

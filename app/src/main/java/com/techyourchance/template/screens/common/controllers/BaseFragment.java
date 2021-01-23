@@ -1,12 +1,11 @@
 package com.techyourchance.template.screens.common.controllers;
 
-import androidx.annotation.UiThread;
-import androidx.fragment.app.Fragment;
-
-import com.techyourchance.template.MyApplication;
 import com.techyourchance.template.common.dependencyinjection.controller.ControllerComponent;
 import com.techyourchance.template.common.dependencyinjection.controller.ControllerModule;
 import com.techyourchance.template.common.dependencyinjection.controller.ViewMvcModule;
+
+import androidx.annotation.UiThread;
+import androidx.fragment.app.Fragment;
 
 public abstract class BaseFragment extends Fragment {
 
@@ -18,8 +17,8 @@ public abstract class BaseFragment extends Fragment {
             throw new IllegalStateException("must not use ControllerComponent more than once");
         }
         mIsControllerComponentUsed = true;
-        return ((MyApplication)getActivity().getApplication())
-                .getApplicationComponent()
-                .newControllerComponent(new ControllerModule(getActivity()), new ViewMvcModule());
+        return ((BaseActivity)getActivity())
+                .getActivityComponent()
+                .newControllerComponent(new ControllerModule(), new ViewMvcModule());
     }
 }

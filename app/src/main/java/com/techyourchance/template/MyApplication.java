@@ -1,14 +1,15 @@
 package com.techyourchance.template;
 
 import android.app.Application;
-import androidx.annotation.UiThread;
-import timber.log.Timber;
 
 import com.techyourchance.template.common.dependencyinjection.application.ApplicationComponent;
 import com.techyourchance.template.common.dependencyinjection.application.ApplicationModule;
 import com.techyourchance.template.common.dependencyinjection.application.DaggerApplicationComponent;
 import com.techyourchance.template.common.dependencyinjection.application.SettingsModule;
 import com.techyourchance.template.common.logging.TimberReleaseTree;
+
+import androidx.annotation.UiThread;
+import timber.log.Timber;
 
 public class MyApplication extends Application {
 

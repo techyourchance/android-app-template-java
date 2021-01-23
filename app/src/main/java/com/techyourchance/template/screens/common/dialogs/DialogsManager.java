@@ -1,53 +1,27 @@
 package com.techyourchance.template.screens.common.dialogs;
 
-import android.os.Bundle;
+import com.techyourchance.dialoghelper.DialogHelper;
+import com.techyourchance.template.screens.common.dialogs.info.InfoDialog;
+import com.techyourchance.template.screens.common.dialogs.prompt.PromptDialog;
+
 import androidx.annotation.Nullable;
 import androidx.annotation.UiThread;
 import androidx.fragment.app.DialogFragment;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import android.text.TextUtils;
 
-/**
- * This class should be used in activities and fragments in order to manage dialogs.
- */
 @UiThread
 public class DialogsManager {
 
-    /**
-     * Whenever a dialog is shown with non-empty "id", the provided id will be stored in
-     * arguments Bundle under this key.
-     */
-    public static final String ARGUMENT_DIALOG_ID = "ARGUMENT_DIALOG_ID";
+    private final DialogHelper mDialogHelper;
 
-    /**
-     * In case Activity or Fragment that instantiated this DialogsManager are re-created (e.g.
-     * in case of memory reclaim by OS, orientation change, etc.), we need to be able
-     * to get a reference to dialog that might have been shown. This tag will be supplied with
-     * all DialogFragment's shown by this DialogsManager and can be used to query
-     * {@link FragmentManager} for last shown dialog.
-     */
-    private static final String DIALOG_FRAGMENT_TAG = "DIALOG_FRAGMENT_TAG";
-
-    private final FragmentManager mFragmentManager;
-    private DialogFragment mCurrentlyShownDialog;
-
-    public DialogsManager(FragmentManager fragmentManager) {
-        mFragmentManager = fragmentManager;
-
-        // there might be some dialog already shown
-        Fragment fragmentWithDialogTag = fragmentManager.findFragmentByTag(DIALOG_FRAGMENT_TAG);
-        if (fragmentWithDialogTag != null
-                && DialogFragment.class.isAssignableFrom(fragmentWithDialogTag.getClass())) {
-            mCurrentlyShownDialog = (DialogFragment) fragmentWithDialogTag;
-        }
+    public DialogsManager(DialogHelper dialogHelper) {
+        mDialogHelper = dialogHelper;
     }
 
     /**
      * @return a reference to currently shown dialog, or null if no dialog is shown.
      */
     public @Nullable DialogFragment getCurrentlyShownDialog() {
-        return mCurrentlyShownDialog;
+        return mDialogHelper.getCurrentlyShownDialog();
     }
 
     /**
@@ -56,12 +30,7 @@ public class DialogsManager {
      *         shown dialog has no id
      */
     public @Nullable String getCurrentlyShownDialogId() {
-        if (mCurrentlyShownDialog == null || mCurrentlyShownDialog.getArguments() == null ||
-                !mCurrentlyShownDialog.getArguments().containsKey(ARGUMENT_DIALOG_ID)) {
-            return null;
-        } else {
-            return mCurrentlyShownDialog.getArguments().getString(ARGUMENT_DIALOG_ID);
-        }
+        return mDialogHelper.getCurrentlyShownDialogId();
     }
 
     /**
@@ -70,45 +39,49 @@ public class DialogsManager {
      * @return true if a dialog with the given id is currently shown; false otherwise
      */
     public boolean isDialogCurrentlyShown(String id) {
-        String shownDialogId = getCurrentlyShownDialogId();
-        return !TextUtils.isEmpty(shownDialogId) && shownDialogId.equals(id);
+        return id.equals(mDialogHelper.getCurrentlyShownDialogId());
     }
 
     /**
-     * Dismiss the currently shown dialog. Has no effect if no dialog is shown. Please note that
-     * we always allow state loss upon dismissal.
+     * Dismiss the currently shown dialog. Has no effect if no dialog is shown.
      */
     public void dismissCurrentlyShownDialog() {
-        if (mCurrentlyShownDialog != null) {
-            mCurrentlyShownDialog.dismissAllowingStateLoss();
-            mCurrentlyShownDialog = null;
-        }
+        mDialogHelper.dismissCurrentlyShownDialog();
+    }
+
+    public String getDialogId(DialogFragment dialog) {
+        return mDialogHelper.getDialogId(dialog);
     }
 
     /**
-     * Show dialog and assign it a given "id". Replaces any other currently shown dialog.<br>
-     * Note that all dialogs implemented with DialogFragment and they will be committed allowing
-     * state loss to prevent IllegalStateException.
-     * @param dialog dialog to show
-     * @param id string that uniquely identifies the dialog; can be null
+     * Show a new instance of {@link InfoDialog}.
+     * @param title dialog's title
+     * @param message dialog's message
+     * @param buttonCaption dialog's button caption
+     * @param id dialog's ID; can be null
      */
-    public void showDialog(DialogFragment dialog, @Nullable String id) {
-        dismissCurrentlyShownDialog();
-        setId(dialog, id);
-        showDialog(dialog);
+    public void showInfoDialog(String title,
+                               String message,
+                               String buttonCaption,
+                               @Nullable String id) {
+        InfoDialog dialog = InfoDialog.newInstance(title, message, buttonCaption);
+        mDialogHelper.showDialog(dialog, id);
     }
 
-    private void setId(DialogFragment dialog, String id) {
-        Bundle args = dialog.getArguments() != null ? dialog.getArguments() : new Bundle(1);
-        args.putString(ARGUMENT_DIALOG_ID, id);
-        dialog.setArguments(args);
+    /**
+     * Show a new instance of {@link PromptDialog}.
+     * @param title dialog's title
+     * @param message dialog's message
+     * @param positiveButtonCaption dialog's positive button caption
+     * @param negativeButtonCaption dialog's negative button caption
+     * @param id dialog's ID; can be null
+     */
+    public void newPromptDialog(String title,
+                                String message,
+                                String positiveButtonCaption,
+                                String negativeButtonCaption,
+                                @Nullable String id) {
+        PromptDialog dialog = PromptDialog.newInstance(title, message, positiveButtonCaption, negativeButtonCaption);
+        mDialogHelper.showDialog(dialog, id);
     }
-
-    private void showDialog(DialogFragment dialog) {
-        mFragmentManager.beginTransaction()
-                .add(dialog, DIALOG_FRAGMENT_TAG)
-                .commitAllowingStateLoss();
-        mCurrentlyShownDialog = dialog;
-    }
-
 }

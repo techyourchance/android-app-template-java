@@ -5,8 +5,8 @@ android {
     buildToolsVersion "29.0.3"
 
     defaultConfig {
-        applicationId "com.domain.appname"
-        minSdkVersion 19
+        applicationId "com.techyourchance.template"
+        minSdkVersion 21
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -52,6 +52,7 @@ android {
 ext {
     androidxAppcompatVersion = '1.2.0'
     androidxAnnotationVersion = '1.1.0'
+    fragmentVersion = "1.2.5"
     daggerVersion = "2.30.1"
     retrofitVersion = "2.6.1"
 }
@@ -61,7 +62,14 @@ dependencies {
 
     implementation "androidx.annotation:annotation:${androidxAnnotationVersion}"
     implementation "androidx.appcompat:appcompat:${androidxAppcompatVersion}"
+    implementation "androidx.fragment:fragment:$fragmentVersion"
 
+    // fragment navigation
+    implementation 'com.ncapdevi:frag-nav:3.3.0'
+
+    // dialogs
+    implementation 'com.techyourchance:dialoghelper:0.9.0'
+    
     // multithreading
     implementation "com.techyourchance.threadposter:threadposter:0.8.3"
 

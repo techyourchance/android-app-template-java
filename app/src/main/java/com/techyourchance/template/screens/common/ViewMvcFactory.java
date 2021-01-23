@@ -1,11 +1,12 @@
 package com.techyourchance.template.screens.common;
 
-import androidx.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
-import com.techyourchance.template.screens.main.mvcviews.MainViewMvc;
-import com.techyourchance.template.screens.main.mvcviews.MainViewMvcImpl;
+import com.techyourchance.template.screens.home.HomeViewMvc;
+import com.techyourchance.template.screens.home.HomeViewMvcImpl;
+
+import androidx.annotation.Nullable;
 
 /**
  * This class is required because we can't inject MVC view implementations directly. The reason is
@@ -21,8 +22,8 @@ public class ViewMvcFactory {
         mLayoutInflater = layoutInflater;
     }
 
-    public MainViewMvc newExampleViewMvc(@Nullable ViewGroup container) {
-        return new MainViewMvcImpl(mLayoutInflater, container);
+    public HomeViewMvc newHomeViewMvc(@Nullable ViewGroup container) {
+        return new HomeViewMvcImpl(mLayoutInflater, container);
     }
 
 }

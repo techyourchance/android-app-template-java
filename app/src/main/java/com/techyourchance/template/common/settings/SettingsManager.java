@@ -6,7 +6,7 @@ package com.techyourchance.template.common.settings;
  */
 public class SettingsManager {
 
-    private static final String KEY_EXAMPLE_SETTING = "KEY_EXAMPLE_SETTING";
+    private static final String KEY_IS_KIOSK = "KEY_IS_KIOSK";
 
     private final SettingsEntryFactory mSettingsEntryFactory;
 
@@ -14,8 +14,8 @@ public class SettingsManager {
         mSettingsEntryFactory = settingsEntryFactory;
     }
 
-    public SettingDataEntry<String> getExampleSetting() {
-        return mSettingsEntryFactory.getDataEntry(String.class, KEY_EXAMPLE_SETTING, "default");
+    public SettingDataEntry<Boolean> isKioskEnabled() {
+        return mSettingsEntryFactory.getDataEntry(Boolean.class, KEY_IS_KIOSK, false);
     }
 
 }

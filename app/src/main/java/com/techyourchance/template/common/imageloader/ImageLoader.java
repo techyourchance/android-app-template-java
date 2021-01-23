@@ -1,7 +1,8 @@
 package com.techyourchance.template.common.imageloader;
 
-import androidx.annotation.DrawableRes;
 import android.widget.ImageView;
+
+import androidx.annotation.DrawableRes;
 
 /**
  * This interface should be implemented by a wrapper around some third-party image loading library

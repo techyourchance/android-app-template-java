@@ -1,48 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:tools="http://schemas.android.com/tools"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:layout_gravity="center"
-              android:orientation="vertical">
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/txt_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
         tools:text="Dialog title"/>
 
-    <RelativeLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp">
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp">
 
-        <TextView
-            android:id="@+id/txt_message"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            tools:text="Dialog message very very very very very very very very very very very very long"/>
+            android:padding="10dp">
 
-        <Button
-            android:id="@+id/btn_positive"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/txt_message"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            tools:text="Positive"/>
+            <TextView
+                android:id="@+id/txt_message"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="Dialog message very very very very very very very very very very very very long"/>
 
-        <Button
-            android:id="@+id/btn_negative"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/txt_message"
-            android:layout_toStartOf="@+id/btn_positive"
-            android:layout_toLeftOf="@id/btn_positive"
-            tools:text="Negative"/>
+            <Button
+                android:id="@+id/btn_positive"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txt_message"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="10dp"
+                tools:text="Positive"/>
 
-    </RelativeLayout>
+            <Button
+                android:id="@+id/btn_negative"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txt_message"
+                android:layout_toStartOf="@+id/btn_positive"
+                android:layout_marginTop="10dp"
+                tools:text="Negative"/>
+
+        </RelativeLayout>
+
+
+    </ScrollView>
 
 </LinearLayout>
